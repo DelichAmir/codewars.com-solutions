@@ -12,15 +12,21 @@
 
 
 def twos_difference(lst):
-    result = []
-    sort_lst = sorted(lst)
 
-    for i in sort_lst:
-        for j in sort_lst:
-            print('j: ', j)
-            if j - i == 2:
-                result.append((i, j))
-    return result
+    # First solution
+
+    # result = []
+    # sort_lst = sorted(lst)
+    #
+    # for i in sort_lst:
+    #     for j in sort_lst:
+    #         if j - i == 2:
+    #             result.append((i, j))
+    #         j += 1
+    # return result
+
+    # Second solution
+    return [(element, element + 2) for element in sorted(lst) if element + 2 in lst]
 
 
 # Test cases
@@ -30,6 +36,11 @@ assert twos_difference([0, 3, 1, 4]) == [(1, 3)]
 assert twos_difference([4, 1, 2, 3]) == [(1, 3), (2, 4)]
 assert twos_difference([6, 3, 4, 1, 5]) == [(1, 3), (3, 5), (4, 6)]
 assert twos_difference([3, 1, 6, 4]) == [(1, 3), (4, 6)]
-assert twos_difference([1, 3, 5, 6, 8, 10, 15, 32, 12, 14, 56]) == [(1, 3), (3, 5), (6, 8), (8, 10), (10, 12), (12, 14)]
+assert twos_difference([1, 3, 5, 6, 8, 10, 15, 32, 12, 14, 56]) == [(1, 3),
+                                                                    (3, 5),
+                                                                    (6, 8),
+                                                                    (8, 10),
+                                                                    (10, 12),
+                                                                    (12, 14)]
 assert twos_difference([1, 4, 7, 10]) == []
 assert twos_difference([]) == []
