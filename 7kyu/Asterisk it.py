@@ -14,7 +14,7 @@
 
 
 def asterisc_it(n):
-
+    # First solution
     if type(n) == list:
         n_str = ''
         out, key = '', []
@@ -40,7 +40,8 @@ def asterisc_it(n):
             if len(out) > 1:
                 if out[-1] == '*':
                     out = out[0:-1] + i
-                else: out += i
+                else:
+                    out += i
             else:
                 out += i
 
@@ -48,6 +49,22 @@ def asterisc_it(n):
         return out[0:-1]
 
     return out
+
+
+    # # Second solution
+    # import re
+    #
+    # if isinstance(n, int):
+    #     n = str(n)
+    # elif isinstance(n, list):
+    #     n = ''.join(map(str, n))
+    # return re.sub(r'(?<=[02468])(?=[02468])', '*', n)
+    #
+    #
+    # # Third solution
+    # if type(n) == list: n = "".join(str(i) for i in n)
+    # if type(n) == int: n = str(n)
+    # return "".join([a+"*" if int(a)%2==0 and int(b)%2 == 0 else a for a,b in zip(n,n[1:])]) + n[-1]
 
 
 # Test cases:
